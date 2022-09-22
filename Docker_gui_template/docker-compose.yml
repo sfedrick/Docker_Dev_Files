@@ -1,0 +1,17 @@
+version: "3"
+#changes in this file are made every time you do docker compose up
+services:
+  gui_app:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY} #set Display environment variable
+    volumes:
+    #part before : is on host machine part after the : is on container 
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - local_storage:/home/local_storage
+    network_mode: host
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+volumes:
+  local_storage:
+    external: true
