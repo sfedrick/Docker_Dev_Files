@@ -1,7 +1,7 @@
 FROM ros:humble-ros-core
 RUN apt-get update
 RUN apt-get install -y xauth 
-RUN apt-get install curl
+RUN apt-get install -y  curl
 RUN curl -sSL http://get.gazebosim.org | sh
 RUN apt-get install -y g++
 RUN apt-get install -y build-essential

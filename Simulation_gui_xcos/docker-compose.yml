@@ -1,7 +1,7 @@
 version: "3"
 #changes in this file are made every time you do docker compose up
 services:
-  ros_gui_app:
+  gui_app:
     build: .
     environment:
       - DISPLAY=${DISPLAY} #set Display environment variable
@@ -12,7 +12,6 @@ services:
     network_mode: host
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-#create a docker volume using docker volume create --name local_storage
 volumes:
   local_storage:
     external: true
