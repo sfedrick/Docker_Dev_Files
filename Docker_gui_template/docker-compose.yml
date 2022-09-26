@@ -1,7 +1,7 @@
 version: "3"
 #changes in this file are made every time you do docker compose up
 services:
-  gui_app:
+  cpp_app:
     build: .
     environment:
       - DISPLAY=${DISPLAY} #set Display environment variable
@@ -11,15 +11,15 @@ services:
     #sudo mount /dev/sda1 /mnt/usb  every time you unplug usb the name will change you 
     # have to remount on computer restart
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - /home/shaun/Code/Local_Storage:/home/local_storage
+      - /home/shaun/Code/Local_Storage/C++:/home/local_storage
       - /mnt/usb:/opt/usb
     network_mode: host
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    devices: 
+    #devices: 
     # your usb device forwarding to the docker image 
     #find what port using lsusb and change the number of port to reflect that 
-      - /dev/sda1:/dev/sda1
+      #- /dev/sda1:/dev/sda1
 volumes:
   local_storage:
     external: true
