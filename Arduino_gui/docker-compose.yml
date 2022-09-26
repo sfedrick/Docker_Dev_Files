@@ -19,6 +19,7 @@ services:
     devices: 
     # your usb device forwarding to the docker image 
     #find what port using lsusb and change the number of port to reflect that 
+    # find this by using disk utility in ubuntu
       - /dev/sda1:/dev/sda1
 volumes:
   local_storage:
