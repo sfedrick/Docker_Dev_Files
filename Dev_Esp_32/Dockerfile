@@ -11,7 +11,7 @@ RUN apt-get -y update
 RUN apt-get -y install gdb
 WORKDIR /home/
 # get esp-idf from github
-RUN apt-get git clone --recursive https://github.com/espressif/esp-idf
+RUN git clone --recursive https://github.com/espressif/esp-idf
 WORKDIR /home/esp-idf/
 # install pip packages and python modules
 RUN apt-get install -y python3.10-venv
@@ -22,7 +22,6 @@ RUN apt-get install -y libhidapi-libusb0
 #export things to path so you can use idf.py build to build projects
 RUN . ./export.sh
 WORKDIR /home/
-RUN mkdir projects
 # install cmake
 RUN apt-get install -y cmake
 # find more info at https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#ide

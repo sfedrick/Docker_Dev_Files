@@ -16,11 +16,11 @@ services:
     network_mode: host
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    devices: 
-    # your usb device forwarding to the docker image 
-    #find what port using lsusb and change the number of port to reflect that 
-    # find this by using ls /dev/tty*
-     - /dev/ttyUSB0:/dev/ttyUSB0
+    # devices: 
+    # # your usb device forwarding to the docker image 
+    # #find what port using lsusb and change the number of port to reflect that 
+    # # find this by using ls /dev/tty*
+    #  - /dev/ttyUSB0:/dev/ttyUSB0
 volumes:
   local_storage:
     external: true
