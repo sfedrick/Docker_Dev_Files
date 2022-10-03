@@ -32,7 +32,9 @@ RUN apt-get install -y cmake
 # #use idf.py build to build your project
 #idf.py build
 ## flash to the board with
-#idf.py -p /dev/ttyUSB0
-# flash to the board 
+#idf.py -p /dev/ttyUSB0 flash
+# read from serial port using 
+#idf.py monitor 
+
 #run this command inside the container get MIT-Magic-Cookie key from xauth list
 #RUN xauth add :1 MIT-MAGIC-COOKIE-1 2fef02a020bda4a56b827fe0b8d18635
