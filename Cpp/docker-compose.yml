@@ -7,7 +7,7 @@ services:
       - DISPLAY=${DISPLAY} #set Display environment variable
     volumes:
     #part before : is on host machine part after the : is on container 
-    # use sudo fdisk -l to see usb devices path
+    # use sudo fdisk -l to see storage usb devices path
     #sudo mount /dev/sda1 /mnt/usb  every time you unplug usb the name will change you 
     # have to remount on computer restart
       - /tmp/.X11-unix:/tmp/.X11-unix
@@ -19,8 +19,8 @@ services:
     devices: 
     # your usb device forwarding to the docker image 
     #find what port using lsusb and change the number of port to reflect that 
-    # find this by using disk utility in ubuntu
-     - /dev/sda1:/dev/sda1
+    # find this by using ls /dev/tty*
+     - /dev/ttyUSB0:/dev/ttyUSB0
 volumes:
   local_storage:
     external: true
