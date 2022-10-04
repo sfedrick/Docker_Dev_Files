@@ -9,10 +9,7 @@ RUN apt-get install -y git
 RUN apt-get install -y gedit 
 RUN apt-get -y update
 RUN apt-get -y install gdb
-WORKDIR /home/
-# get esp-idf from github
-RUN git clone --recursive https://github.com/espressif/esp-idf
-WORKDIR /home/esp-idf/
+
 # install pip packages and python modules
 RUN apt-get install -y python3.10-venv
 
@@ -24,6 +21,8 @@ WORKDIR /home/
 
 # install cmake
 RUN apt-get install -y cmake
+
+
 # find more info at https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#ide
 #go into project folder run 
 #idf.py create-project <NAME> to create your porject
@@ -45,3 +44,13 @@ RUN apt-get install -y putty
 #RUN xauth add :1 MIT-MAGIC-COOKIE-1 2fef02a020bda4a56b827fe0b8d18635
 
 COPY init_script.sh /home/
+WORKDIR /home/
+
+
+# get esp-idf from github
+RUN git clone --recursive https://github.com/espressif/esp-idf
+
+WORKDIR /home/esp-idf/
+RUN ./install.sh
+#add idf to path
+RUN echo '. /home/init_script.sh'>> ~/.bashrc
