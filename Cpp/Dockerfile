@@ -13,5 +13,7 @@ RUN apt-get -y update
 RUN apt-get install -y libeigen3-dev
 RUN apt-get -y update
 RUN apt-get install -y libboost-all-dev
+# get cmake
+RUN apt-get -y install cmake
 #run this command inside the container get MIT-Magic-Cookie key from xauth list
 #RUN xauth add :1 MIT-MAGIC-COOKIE-1 2fef02a020bda4a56b827fe0b8d18635

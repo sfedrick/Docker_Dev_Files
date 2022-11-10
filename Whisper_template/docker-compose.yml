@@ -1,0 +1,25 @@
+version: "3"
+#changes in this file are made every time you do docker compose up
+services:
+  cpp_app:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY} #set Display environment variable
+    volumes:
+    #part before : is on host machine part after the : is on container 
+    # use sudo fdisk -l to see usb devices path
+    #sudo mount /dev/sda1 /mnt/usb  every time you unplug usb the name will change you 
+    # have to remount on computer restart
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/shaun/Code/Local_Storage/C++:/home/local_storage
+      - /mnt/usb:/opt/usb
+    network_mode: host
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    #devices: 
+    # your usb device forwarding to the docker image 
+    #find what port using lsusb and change the number of port to reflect that 
+      #- /dev/sda1:/dev/sda1
+volumes:
+  local_storage:
+    external: true
