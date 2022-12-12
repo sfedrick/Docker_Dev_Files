@@ -13,7 +13,7 @@ RUN pip install -r requirements.txt
 RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 #when you first start the container run 
-#heroku git:remote -a shaunfedrick
+#heroku git:remote -a shaunfedrick inside of shaunfedrick directory
 #then git add, git commit, git push heroku main to make changes
 
 #run this command inside the container get MIT-Magic-Cookie key from xauth list
