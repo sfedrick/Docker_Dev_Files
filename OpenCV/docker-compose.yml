@@ -1,0 +1,18 @@
+version: "3"
+#changes in this file are made every time you do docker compose up
+services:
+  opencv_app:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY} #set Display environment variable
+    volumes:
+    #part before : is on host machine part after the : is on container 
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/shaun/Code/Local_Storage/OpenCV:/home/local_storage
+    network_mode: host
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+#create a docker volume using docker volume create --name local_storage
+volumes:
+  local_storage:
+    external: true
