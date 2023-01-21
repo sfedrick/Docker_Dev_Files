@@ -12,7 +12,10 @@ services:
     network_mode: host
     stdin_open: true # docker run -i
     tty: true        # docker run -t
+    # devices: 
+    #    - /dev/video0:/dev/video0
 #create a docker volume using docker volume create --name local_storage
 volumes:
   local_storage:
     external: true
+

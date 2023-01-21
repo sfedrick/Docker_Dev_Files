@@ -1,4 +1,12 @@
 FROM ubuntu:latest
+
+
+#get docker container to work offline
+RUN cd /root/ && mkdir .vscode-server
+RUN cd /root/.vscode-server && mkdir bin
+RUN cd /root/.vscode-server/bin && mkdir 97dec172d3256f8ca4bfb2143f3f76b503ca0534
+COPY /home/shaun/Code/. .
+
 #essentials 
 RUN apt-get update
 RUN apt-get install -y xauth 
