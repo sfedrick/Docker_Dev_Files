@@ -2,10 +2,11 @@ FROM ubuntu:latest
 
 
 #get docker container to work offline
+RUN export VSCODE_CONTEXT=97dec172d3256f8ca4bfb2143f3f76b503ca0534
 RUN cd /root/ && mkdir .vscode-server
 RUN cd /root/.vscode-server && mkdir bin
 RUN cd /root/.vscode-server/bin && mkdir 97dec172d3256f8ca4bfb2143f3f76b503ca0534
-COPY /home/shaun/Code/. .
+COPY vscode-server-linux-x64/. /root/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b503ca0534/
 
 #essentials 
 RUN apt-get update
@@ -53,8 +54,7 @@ RUN make -j4
 RUN make install
 
 
-# That’s it. If you did not encounter any error then OpenCV is installed successfully 
-#on your Linux system. The header files are at the location 
+# The header files are at the location 
 # /usr/local/include/opencv4
 
 #run this command inside the container get MIT-Magic-Cookie key from xauth list
