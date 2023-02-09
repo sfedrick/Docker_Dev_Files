@@ -7,11 +7,8 @@ USER 0
 #use bash for the shell
 SHELL [ "/bin/bash","-c" ]
 
-#sets the environment so that we can use conda after install
-ENV PATH="~/anaconda3/condabin:${PATH}"
-
 #Used for GPU setup
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES compute,video,utility
+# ENV NVIDIA_VISIBLE_DEVICES all
+# ENV NVIDIA_DRIVER_CAPABILITIES compute,video,utility
 
 
