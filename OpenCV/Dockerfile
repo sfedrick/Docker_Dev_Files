@@ -2,11 +2,11 @@ FROM ubuntu:latest
 
 
 #get docker container to work offline
-RUN export VSCODE_CONTEXT=97dec172d3256f8ca4bfb2143f3f76b503ca0534
+RUN export VSCODE_CONTEXT=e2816fe719a4026ffa1ee0189dc89bdfdbafb164
 RUN cd /root/ && mkdir .vscode-server
 RUN cd /root/.vscode-server && mkdir bin
-RUN cd /root/.vscode-server/bin && mkdir 97dec172d3256f8ca4bfb2143f3f76b503ca0534
-COPY vscode-server-linux-x64/. /root/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b503ca0534/
+RUN cd /root/.vscode-server/bin && mkdir e2816fe719a4026ffa1ee0189dc89bdfdbafb164
+COPY vscode-server-linux-x64/. /root/.vscode-server/bin/e2816fe719a4026ffa1ee0189dc89bdfdbafb164/
 
 #essentials 
 RUN apt-get update
@@ -57,5 +57,5 @@ RUN make install
 # The header files are at the location 
 # /usr/local/include/opencv4
 
-#run this command inside the container get MIT-Magic-Cookie key from xauth list
+#run this (xauth list) command inside the container get MIT-Magic-Cookie key from xauth list
 #RUN xauth add :1 MIT-MAGIC-COOKIE-1 [code from xauth list after mit magic cookie 1]
