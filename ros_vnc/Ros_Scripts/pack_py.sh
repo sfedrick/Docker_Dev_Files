@@ -9,5 +9,9 @@ do
     esac
 done
 
+if [ -z "$dependencies" ]; then
+ ros2 pkg create $package_name --dependencies $dependencies --build-type ament_python  
+fi
 
-ros2 pkg create $package_name --dependencies $dependencies --build-type ament_python 
+
+ros2 pkg create $package_name --build-type ament_python 
