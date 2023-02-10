@@ -13,7 +13,7 @@ RUN set -ex; \
       xterm \
       xvfb
 
-# Setup demo environment variables
+# Setup xterm and environment variables
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
@@ -25,8 +25,10 @@ ENV HOME=/root \
     RUN_XTERM=yes \
     RUN_FLUXBOX=yes
 COPY . /app
-
-
+# add useful ros scripts to path
+RUN chmod +x /app/Ros_Scripts/*
+RUN PATH=$/app/Ros_Scripts/:$PATH
+RUN echo "PATH=/app/Ros_Scripts/:$PATH" >> ~/.bashrc
 
 RUN apt-get update
 RUN apt-get install -y xauth 
@@ -64,6 +66,10 @@ RUN echo "source /home/ros2_ws/install/setup.bash" >> ~/.bashrc
 
 #downgrade pip3 because colcon build misbehaves with most recent setuptools
 RUN pip3 install setuptools==58.2.0
+
+
+
+
 
 CMD ["/app/entrypoint.sh"]
 EXPOSE 8080
