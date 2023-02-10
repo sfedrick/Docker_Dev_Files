@@ -1,20 +1,14 @@
-version: '2'
+version: '3'
 services:
-#   ide:
-#     image: psharkey/intellij:latest
-# #    image: psharkey/netbeans-8.1:latest
-#     environment:
-#       - DISPLAY=novnc:0.0
-#     depends_on:
-#       - novnc
-#     networks:
-#       - x11
   novnc:  
     build: .
     environment:
       # Adjust to your screen size
-      - DISPLAY_WIDTH=1600
-      - DISPLAY_HEIGHT=968
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=1080
+    volumes:
+    #part before : is on host machine part after the : is on container 
+      - /home/shaun/Code/Local_Storage/Ros:/home/local_storage
     ports:
       - "8080:8080"
     networks:
