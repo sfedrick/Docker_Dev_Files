@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  novnc:  
+    build: .
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1600
+      - DISPLAY_HEIGHT=968
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+networks:
+  x11:
