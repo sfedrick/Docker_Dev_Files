@@ -1,3 +1,5 @@
+# to access no vnc viewer go to http://localhost:8080/vnc.html in any browser after runner docker compose up in the ros_vnc folder.
+
 # noVNC Display Container
 ```
 ```
